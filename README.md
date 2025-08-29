@@ -1,16 +1,84 @@
-# primedev_mobile_new
+# Primedev Mobile (Flutter)
 
-A new Flutter project.
+A Flutter mobile app that provides a mobile experience for a LeetCode-like practice project.
 
-## Getting Started
+## Prerequisites
+- Flutter SDK (3.x recommended): https://docs.flutter.dev/get-started/install
+- Android Studio or Xcode (for device/emulator)
+- Dart SDK (bundled with Flutter)
 
-This project is a starting point for a Flutter application.
+Verify your setup:
+```
+flutter doctor
+```
 
-A few resources to get you started if this is your first Flutter project:
+## Project Setup
+From the project root:
+```
+cd primedev_mobile_new
+flutter pub get
+```
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Run (Development)
+- Android (device/emulator):
+```
+flutter run -d android
+```
+- iOS (simulator):
+```
+flutter run -d ios
+```
+- Web (optional, if enabled):
+```
+flutter run -d chrome
+```
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Build
+- Android APK (release):
+```
+flutter build apk --release
+```
+- Android App Bundle (Play Store):
+```
+flutter build appbundle --release
+```
+- iOS (release, requires Xcode/macOS):
+```
+flutter build ios --release
+```
+
+## App Structure (high level)
+- `lib/`
+  - `main.dart` – App entry point
+  - `pages/`
+    - `problem_detail.dart` – Problem details page
+  - `services/`
+    - `local_repository.dart` – Local data access (loads problems)
+    - `python_executor.dart` – Python execution service (concept integration)
+    - `js_executor.dart` – JavaScript execution via embedded runtime
+    - `storage_service.dart` – Local storage utilities
+- `assets/`
+  - `problems.json` – Seed problem data
+  - `third_party/` – Third-party assets (e.g., `skulpt.min.js`)
+
+## Environment & Assets
+- Ensure `assets/` are declared in `pubspec.yaml` (already configured).
+- If you add new assets, update `pubspec.yaml` and run `flutter pub get`.
+
+## Testing
+```
+flutter test
+```
+
+## Contributing
+- Create a branch, commit changes, and open a PR.
+```
+git checkout -b feature/my-change
+# make edits
+git add .
+git commit -m "feat: describe your change"
+git push -u origin feature/my-change
+```
+
+## License
+This repository uses the license configured in the root GitHub repo.
